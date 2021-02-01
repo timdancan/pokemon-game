@@ -1,10 +1,11 @@
-import s from './App.module.css'
-import Header from '../Header/Header.js'
-import Layout from '../Layout/Layout.js'
-import Footer from '../Footer/Footer.js'
+import s from './Home.module.css'
+import Footer from '../../components/Footer/Footer.js'
+import Header from '../../components/Header/Header.js'
+import Layout from '../../components/Layout/Layout.js'
 import BackgroundImage from '../../assets/bg.jpg'
 import BackgroundImageSecond from '../../assets/bg3.jpg'
-import PokemonCard from '../PokemonCard/PokemonCard.js'
+import PokemonCard from '../../components/PokemonCard/PokemonCard.js'
+import MenuNavBar from '../../components/MenuNavBar/MenuNavBar.js'
 
 
 const POKEMONS = [
@@ -142,12 +143,18 @@ const POKEMONS = [
   }
 ]
 
-const App = () => {
+const HomePage = ({ onChangePage }) => {
+  const handleClickButton = () => {
+    console.log('####: <HomePage />');
+    onChangePage && onChangePage()
+  }
   return (
     <>
+      <MenuNavBar />
       <Header
         title="Pokemon Game"
         descr="This is simple triple triad game!"
+        onClickButton={ handleClickButton }
       />
       <Layout 
         id="1" 
@@ -183,4 +190,4 @@ const App = () => {
   );
 };
 
-export default App
+export default HomePage
