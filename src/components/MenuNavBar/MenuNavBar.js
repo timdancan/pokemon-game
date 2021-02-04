@@ -2,18 +2,17 @@ import { useState } from "react";
 import Menu from '../Menu/Menu.js'
 import NavBar from '../NavBar/NavBar.js'
 
-const MenuNavBar = () => {
+const MenuNavBar = ({ bgActive }) => {
 
-  
-  const [isActive, setActive] = useState(false);
+  const [isActive, setActive] = useState(null);
   const hendleClick = () => {
-    setActive(!isActive);
+    setActive(prevState => !prevState);
   };
 
   return (
     <>
-      <NavBar onChangeState={hendleClick} isActive={isActive}/>
-      <Menu isActive={isActive}/>
+      <NavBar onChangeState={hendleClick} bgActive={bgActive} isActive={isActive}/>
+      <Menu isActive={isActive} onMenuClickClose={hendleClick}/>
     </>
   );
 };
