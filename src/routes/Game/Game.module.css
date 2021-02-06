@@ -100,3 +100,13 @@
     padding: 10rem 2rem 8rem;
   }
 }
+
+.button {
+  width: 200px;
+  height: 50px;
+  background: #f300b4;
+  border: 2px solid ;
+  outline: none;
+  cursor: pointer;
+  border-radius: 2px;
+}

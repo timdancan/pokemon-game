@@ -1,4 +1,3 @@
-
 import s from "./PokemonCard.module.css";
 import cardBackSide from "../../assets/card-back-side.jpg";
 import cn from 'classnames'
