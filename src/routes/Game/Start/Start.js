@@ -54,7 +54,7 @@ const GamePage = () => {
       return Object.entries(prevState).reduce((acc, item) => {
         const pokemon = { ...item[1] };
         if (pokemon.id === id && !pokemon.isSelected) {
-          pokemon.active = true;
+          pokemon.isSelected = true;
           pushToContext(item)
         }
 
@@ -94,9 +94,9 @@ const GamePage = () => {
             <div className={cn(s.desc, s.full)}>
               <div className={s.flex}>
                 {Object.entries(pokemons).map(
-                  ([key, { name, img, id, type, values, active }]) => (
+                  ([key, { name, img, id, type, values }]) => (
                     <PokemonCard
-                      isActive={active}
+                      isActive={true}
                       onCardClick={handleClickPokemon}
                       key={key}
                       name={name}
