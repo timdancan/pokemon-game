@@ -7,7 +7,7 @@ const PokemonCard = ({ name, img, id, type, values, isActive = true, isSelected,
   };
   return (
     <div 
-      className={cn(s.root, {[s.active] : isActive})}
+      className={cn(s.root, className, {[s.active] : isActive}, {[s.selected]: isSelected})}
       onClick={handleClick}
     >
       <div className={s.pokemonСard}>

@@ -1,9 +1,11 @@
 import { useHistory } from "react-router-dom";
-import { useState, useEffect } from "react";
-import database from "../../../service/firebase.js";
+import { useState, useEffect, useContext } from "react";
 import s from "./Start.module.css";
 import cn from "classnames";
 import PokemonCard from "../../../components/PokemonCard/PokemonCard.js";
+import {FireBaseContext} from '../../../context/firebaseContext'
+import { Link } from 'react-router-dom'
+import { PokemonContext } from "../../../context/pokemonContext";
 
 const pokemonich = {
     "abilities" : [ "intimidate", "shed-skin", "unnerve" ],
@@ -30,7 +32,9 @@ const pokemonich = {
 }
 
 const GamePage = () => {
+  const firebase = useContext(FireBaseContext)
   const history = useHistory();
+  const SelectedContext = useContext(PokemonContext);
 
   const handleClick = () => {
     history.push("/");
@@ -38,37 +42,36 @@ const GamePage = () => {
 
   const [pokemons, setPokemons] = useState({});
 
-  const getPokemons = () => {
-    database.ref("pokemons").once("value", (snapshot) => {
-      setPokemons(snapshot.val());
-    });
-  }
 
   useEffect(() => {
-    getPokemons()
+    firebase.getPokemonSoket((pokemons) => {
+      setPokemons(pokemons)
+    })
   }, []);
 
   const handleClickPokemon = (id) => {
     setPokemons((prevState) => {
       return Object.entries(prevState).reduce((acc, item) => {
         const pokemon = { ...item[1] };
-        if (pokemon.id === id) {
-          pokemon.active = !pokemon.active;
+        if (pokemon.id === id && !pokemon.isSelected) {
+          pokemon.active = true;
+          pushToContext(item)
         }
 
         acc[item[0]] = pokemon;
-
-        database.ref('pokemons/' + item[0]).set(pokemon)
+        firebase.postPokemon(item[0], pokemon)
         return acc;
       }, {});
     });
   };
 
+  const pushToContext = (val) => {
+    SelectedContext.pokemon.push(val)
+  }
+
   const addPokemon = () => {
-    const newKey = database.ref().child("pokemons").push().key;
-    const updates = {};
-    updates["/pokemons/" + newKey] = pokemonich;
-    return database.ref().update(updates);
+    const data = pokemonich
+    firebase.addPokemon(data)
   };
 
   return (
@@ -81,8 +84,13 @@ const GamePage = () => {
               <span className={s.separator}></span>
             </div>
             <button className={s.button} onClick={addPokemon}>
-              Add new pokemon
+              Add Pokemon
             </button>
+            <Link to="game/board">
+            <button className={s.button}>
+              Start Game
+            </button>
+            </Link>
             <div className={cn(s.desc, s.full)}>
               <div className={s.flex}>
                 {Object.entries(pokemons).map(
@@ -96,6 +104,8 @@ const GamePage = () => {
                       id={id}
                       type={type}
                       values={values}
+                      minimize={true}
+                      className={s.card}
                     />
                   )
                 )}
