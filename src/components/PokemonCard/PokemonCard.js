@@ -1,8 +1,7 @@
 import s from "./PokemonCard.module.css";
-import cardBackSide from "../../assets/card-back-side.jpg";
 import cn from 'classnames'
 
-const PokemonCard = ({ name, img, id, type, values, isActive, onCardClick }) => {
+const PokemonCard = ({ name, img, id, type, values, isActive = true, isSelected, onCardClick, minimize, className }) => {
   const handleClick = () => {
     onCardClick(id)
   };
@@ -24,20 +23,19 @@ const PokemonCard = ({ name, img, id, type, values, isActive, onCardClick }) => 
               <div className={s.imgContainer}>
                 <img src={img} alt={name} />
               </div>
-              <div className={s.info}>
+              { !minimize && (<div className={s.info}>
                 <span className={s.number}>#{id}</span>
                 <h3 className={s.name}>{name}</h3>
                 <small className={s.type}>
                   Type: <span>{type}</span>
                 </small>
-              </div>
+              </div>)}
             </div>
           </div>
         </div>
 
-        <div className={s.cardBack}>
-          <div className={`${s.wrap} ${s.back}`}>
-            <img src={cardBackSide} alt="Сard Backed" />
+          <div className={s.cardBack}>
+            <div className={`${s.wrap} ${s.back}`}>
           </div>
         </div>
       </div>

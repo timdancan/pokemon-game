@@ -1,8 +1,8 @@
 .root {
-  --fire: #FDDFDF;
-  --grass: #DEFDE0;
-  --electric: #FCF7DE;
-  --water: #DEF3FD;
+  --fire: #fddfdf;
+  --grass: #defde0;
+  --electric: #fcf7de;
+  --water: #def3fd;
   --ground: #f4e7da;
   --rock: #d5d5d4;
   --fairy: #fceaff;
@@ -10,15 +10,15 @@
   --bug: #f8d5a3;
   --dragon: #97b3e6;
   --psychic: #eaeda1;
-  --flying: #F5F5F5;
-  --fighting: #E6E0D4;
-  --normal:#F5F5F;
+  --flying: #f5f5f5;
+  --fighting: #e6e0d4;
+  --normal: #F5F5F;
 
-  width: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: .6s .1s;
+  transition: 0.6s 0.1s;
   transform: rotateY(180deg);
 }
 
@@ -29,18 +29,20 @@
   perspective: 1000px;
 }
 
+.root.selected {
+  margin-top: -40px;
+}
 
 .root.active {
   animation: flipFront 1000ms 300ms forwards;
 }
 
-
 @keyframes flipFront {
   from {
-      transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
   to {
-      transform: rotateY(0deg);
+    transform: rotateY(0deg);
   }
 }
 
@@ -79,7 +81,7 @@
 }
 
 .wrap.front::after {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 100%;
@@ -93,6 +95,10 @@
 
 .wrap.back {
   z-index: -1;
+  background-image: url(../../assets/card-back-side.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .cardBack {
@@ -202,7 +208,7 @@
   height: 78px;
 }
 
-.count{
+.count {
   position: absolute;
   width: 30px;
   height: 26px;
@@ -230,5 +236,3 @@
   transform: translate(-50%, 0);
   bottom: 0;
 }
-
-
