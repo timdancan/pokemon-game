@@ -87,9 +87,9 @@ const GamePage = () => {
               Add Pokemon
             </button>
             <Link to="game/board">
-            <button className={s.button}>
+              <button className={s.button}>
               Start Game
-            </button>
+              </button>
             </Link>
             <div className={cn(s.desc, s.full)}>
               <div className={s.flex}>

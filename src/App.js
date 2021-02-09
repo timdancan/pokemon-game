@@ -9,11 +9,13 @@ import ContactPage from "./routes/Contact/Contact.js";
 import NotFound from "./routes/NotFound/NotFound.js";
 import s from "./App.module.css"
 import cn from 'classnames'
+import {FireBaseContext} from './context/firebaseContext'
+import Firebase from "./service/firebase.js";
 
 const App = () => {
   const match = useRouteMatch('/')
   return (
-    
+    <FireBaseContext.Provider value={new Firebase()}>
       <Switch>
         <Route path="/404" component={NotFound} />
         <Route>
@@ -36,9 +38,8 @@ const App = () => {
             <Footer />
           </>
         </Route>
-        
       </Switch>
-
+    </FireBaseContext.Provider>
   );
   // const [page, setPage] = useState('app')
 
