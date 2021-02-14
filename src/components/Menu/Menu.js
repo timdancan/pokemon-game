@@ -36,7 +36,7 @@ const Menu = ({isActive, onMenuClickClose}) => {
           {
             MENU.map(({title, to}, index) => (
               <li key={index}>
-                <Link onClick={onMenuClick} to={to}>{title}</Link>
+                <Link onClick={onMenuClick} to={`/${to}`}>{title}</Link>
               </li>
             ))
           }

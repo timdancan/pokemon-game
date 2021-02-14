@@ -56,6 +56,7 @@ const StartPage = () => {
             >
               Start game
             </button>
+            <button className={s.button} onClick={handleClick}>Back to Main Page</button>
             <div className={cn(s.desc, s.full)}>
               <div className={s.flex}>
                 {Object.entries(pokemons).map(
@@ -83,7 +84,7 @@ const StartPage = () => {
           </article>
         </div>
       </section>
-      <button onClick={handleClick}>Back to Main Page</button>
+     
     </>
   );
 };

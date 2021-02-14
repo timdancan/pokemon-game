@@ -13,17 +13,16 @@ import {FireBaseContext} from './context/firebaseContext'
 import Firebase from "./service/firebase.js";
 
 const App = () => {
-  const location = useLocation()
-  const isPadding = location.pathname === '/' || location.pathname === '/game/board'
+  const match = useLocation('/')
   return (
     <FireBaseContext.Provider value={new Firebase()}>
       <Switch>
         <Route path="/404" component={NotFound} />
         <Route>
           <>
-            <MenuNavBar bgActive={!isPadding.isExact}/>
+            <MenuNavBar bgActive={!match.isExact}/>
             <div className={cn(s.wrap, {
-              [s.isHomePage]: isPadding.isExact
+              [s.isHomePage]: match.isExact
             })}>
               <Switch>
                 <Route path="/" exact component={HomePage} />
