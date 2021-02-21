@@ -1,9 +1,10 @@
 import React from 'react'
+import s from './Finish.module.css'
 
 const FinishPage = () => {
   return (
     <div>
-      This is Finish Page
+      <button className={s.button}>end game</button>
     </div>
   )
 }

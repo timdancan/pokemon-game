@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0c51f50e.chunk.css",
+    "main.js": "/static/js/main.6aa35907.chunk.js",
+    "main.js.map": "/static/js/main.6aa35907.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9cf1b2db.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9cf1b2db.js.map",
+    "static/js/2.83b3f86f.chunk.js": "/static/js/2.83b3f86f.chunk.js",
+    "static/js/2.83b3f86f.chunk.js.map": "/static/js/2.83b3f86f.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.0c51f50e.chunk.css.map": "/static/css/main.0c51f50e.chunk.css.map",
+    "static/js/2.83b3f86f.chunk.js.LICENSE.txt": "/static/js/2.83b3f86f.chunk.js.LICENSE.txt",
+    "static/media/bg.339e2b02.jpg": "/static/media/bg.339e2b02.jpg",
+    "static/media/bg3.59f1c1e9.jpg": "/static/media/bg3.59f1c1e9.jpg",
+    "static/media/Board.module.css": "/static/media/board.73af5dd5.png",
+    "static/media/PokemonCard.module.css": "/static/media/card-back-side.3bc67f21.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9cf1b2db.js",
+    "static/js/2.83b3f86f.chunk.js",
+    "static/css/main.0c51f50e.chunk.css",
+    "static/js/main.6aa35907.chunk.js"
+  ]
+}
